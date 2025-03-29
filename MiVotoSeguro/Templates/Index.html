@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elecciones Presidenciales</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+
+<body>
+    <div class="todo">
+
+        <div class="encabezado">
+            <h4>PROCESO ELECTORAL FEDERAL 2024 - 2025</h4>
+            <h1>PRESIDENCIA</h1>
+        </div>
+
+        <div class="votacion">
+
+            <form class="voto" action="POST">
+
+                <div class="modulo">
+                    <div class="input_50">
+                        <label for="entidad">ENTIDAD <br> FEDERATIVA</label> <input id="entidad" type="text">
+                    </div>
+                    <div class="input_25">
+                        <label for="modulo">MODULO <br>ELECTORAL</label>    <input id="modulo" type="text">
+                        <label for="distrito">DISTRITO <br>ELECTORAL</label>    <input id="distrito" type="text">
+                    </div>
+                </div>
+
+                <div class="indicacion">
+                    <h2>Marque el recuadro de su preferencia</h2>
+                </div>
+
+                <div class="opciones">
+
+                    <div class="opcion">
+                        <div class="imagenes">
+                            <img src="/static/img/PAN_logo_(Mexico).svg.png" alt="">
+                        </div>
+                        <div class="nombre_voto">
+                            <p>PARTIDO ACCION NACIONAL</p>
+                            <button type="button" class="seleccionado"><img src="/static/img/xRoja.webp" alt=""></button>
+                        </div>
+                        
+                    </div>
+     
+                    <div class="opcion">
+                        <div class="imagenes">
+                            <img src="/static/img/PRI_logo_(Mexico).svg.png" alt="">
+                        </div>
+                        <div class="nombre_voto">
+                            <p>PARTIDO REVOLUCIONARIO INSTITUCIONAL</p>
+                            <button type="button" class="seleccionado"><img src="/static/img/xRoja.webp" alt=""></button>
+                        </div>
+                    </div>
+               
+                    <div class="opcion">
+                        <div class="imagenes">
+                            <img src="/static/img/PRD_logo_(Mexico).svg.png" alt="">
+                        </div>
+                        <div class="nombre_voto">
+                            <p>PARTIDO DE LA REVOLUCION DEMOCRATICA</p>
+                            <button type="button" class="seleccionado"><img src="/static/img/xRoja.webp" alt=""></button>
+                        </div>
+                    </div>
+
+                    <div class="opcion">
+                        <div class="imagenes">
+                            <img src="/static/img/Logo_Partido_Verde_(México).svg.png" alt="">
+                        </div>
+                        <div class="nombre_voto">
+                            <p>PARTIDO VERDE ECOLOGISTA DE MEXICO</p>
+                            <button type="button" class="seleccionado"><img src="/static/img/xRoja.webp" alt=""></button>
+                        </div>
+                    </div>
+
+                    <div class="opcion">
+                        <div class="imagenes">
+                            <img src="/static/img/Worker's_Party_logo_(Mexico).svg.png" alt="">
+                        </div>
+                        <div class="nombre_voto">
+                            <p>PARTIDO DEL TRABAJO</p>
+                            <button type="button" class="seleccionado"><img src="/static/img/xRoja.webp" alt=""></button>
+                        </div>
+                    </div>
+
+                    <div class="opcion">
+                        <div class="imagenes">
+                            <img src="/static/img/Logo_Partido_Movimiento_Ciudadano_(México).svg.png" alt="">
+                        </div>
+                        <div class="nombre_voto">
+                            <p>MOVIMIENTO CIUDADANO</p>
+                            <button type="button" class="seleccionado"><img src="/static/img/xRoja.webp" alt=""></button>
+                        </div>
+                    </div>
+
+                    <div class="opcion">
+                        <div class="imagenes">
+                            <img src="/static/img/Morena_logo_(Mexico).svg.png" alt="">
+                        </div>
+                        <div class="nombre_voto">
+                            <p>MORENA</p>
+                            <button type="button" class="seleccionado"><img src="/static/img/xRoja.webp" alt=""></button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const botones = document.querySelectorAll(".seleccionado");
+
+    // Ocultar todas las imágenes por defecto
+    botones.forEach(boton => {
+        const imagen = boton.querySelector("img");
+        imagen.style.display = "none";
+    });
+
+    botones.forEach(boton => {
+        boton.addEventListener("click", function () {
+            // Desmarcar todos los botones
+            botones.forEach(b => {
+                b.classList.remove("activo");
+                b.querySelector("img").style.display = "none";
+            });
+            
+            // Marcar solo el botón seleccionado
+            this.classList.add("activo");
+            this.querySelector("img").style.display = "block";
+            
+            const partido = this.parentElement.querySelector("p").textContent;
+            console.log("Seleccionado: " + partido);
+        });
+    });
+});
+
+</script>
+
+</html>
